@@ -21,21 +21,35 @@ cd aur-konqix
 yay -Bi .    # or: paru -Bi .
 ```
 
-**Without an AUR helper**, install `libpurple` manually first, then
-build konqix with plain `makepkg`:
+**Without an AUR helper**, `libpurple` has to be installed manually,
+one AUR package at a time (plain `makepkg` can't reach across AUR
+dependencies the way `yay`/`paru` do):
 
-```sh
-git clone https://aur.archlinux.org/pidgin.git
-cd pidgin
-makepkg --pkg libpurple -si   # builds/installs only libpurple, not the
-                              # full GTK pidgin client or finch
-
-cd ..
-git clone https://github.com/asmbk/aur-konqix.git
-cd aur-konqix
-makepkg -si   # installs remaining deps (qt6-base, kwindowsystem,
-              # hunspell) straight from the official repos via pacman
-```
+1. `libpurple` itself depends on `libgadu` (Gadu-Gadu protocol
+   support), which is *also* AUR-only — install it first:
+   ```sh
+   git clone https://aur.archlinux.org/libgadu.git
+   cd libgadu
+   makepkg -si
+   cd ..
+   ```
+2. `libpurple`'s source lives in the `pidgin` package base alongside
+   the full GTK client and `finch`; build/install *only* the
+   `libpurple` split package with `--pkg`:
+   ```sh
+   git clone https://aur.archlinux.org/pidgin.git
+   cd pidgin
+   makepkg --pkg libpurple -si
+   cd ..
+   ```
+3. Now build konqix itself — its remaining deps (`qt6-base`,
+   `kwindowsystem`, `hunspell`) are all official, so plain `makepkg`
+   installs them straight from `pacman`:
+   ```sh
+   git clone https://github.com/asmbk/aur-konqix.git
+   cd aur-konqix
+   makepkg -si
+   ```
 
 ## Updating for a new konqix release
 
