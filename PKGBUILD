@@ -1,4 +1,4 @@
-# Maintainer: Michal Bok <michal.bok@airslate.com>
+# Maintainer: Michal Bok <michal.bok@gmail.com>
 pkgname=konqix
 pkgver=0.1.4
 pkgrel=1
