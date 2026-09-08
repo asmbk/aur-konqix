@@ -1,0 +1,19 @@
+pkgbase = konqix
+	pkgdesc = Qt 6 instant messenger built on libpurple
+	pkgver = 0.1.4
+	pkgrel = 1
+	url = https://github.com/radek-bucek/konqix
+	arch = x86_64
+	license = GPL-2.0-or-later
+	makedepends = cmake
+	makedepends = pkgconf
+	makedepends = desktop-file-utils
+	depends = qt6-base
+	depends = libpurple
+	depends = kwindowsystem
+	depends = hunspell
+	optdepends = hunspell-en_us: English dictionary for the spell-check input overlay
+	source = konqix-0.1.4.tar.gz::https://github.com/radek-bucek/konqix/archive/refs/tags/v0.1.4.tar.gz
+	sha256sums = 220b21e29260dfe883397f685c810f865ea4590fa4dd6184aae38b6ab673bd2f
+
+pkgname = konqix
