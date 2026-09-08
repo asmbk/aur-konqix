@@ -27,7 +27,8 @@ build konqix with plain `makepkg`:
 ```sh
 git clone https://aur.archlinux.org/pidgin.git
 cd pidgin
-makepkg -si   # prompts to build/install the libpurple split package
+makepkg --pkg libpurple -si   # builds/installs only libpurple, not the
+                              # full GTK pidgin client or finch
 
 cd ..
 git clone https://github.com/asmbk/aur-konqix.git
