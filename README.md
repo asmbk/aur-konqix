@@ -5,6 +5,10 @@ instant messenger built on libpurple. Follows the AUR's required repo
 layout (`PKGBUILD` + `.SRCINFO`), so this same content can be pushed
 straight to the [AUR](https://aur.archlinux.org/) if published there.
 
+Want the live `main` branch instead of the latest tagged release? See
+[aur-konqix-git](https://github.com/asmbk/aur-konqix-git) — the two
+`provides`/`conflicts` each other and can't both be installed at once.
+
 ## Install
 
 `libpurple` itself isn't in the official Arch repos — it's only on the
