@@ -7,14 +7,34 @@ straight to the [AUR](https://aur.archlinux.org/) if published there.
 
 ## Install
 
+`libpurple` itself isn't in the official Arch repos — it's only on the
+AUR (as a split of the `pidgin` package), so plain `pacman`-based
+dependency resolution can't pull it in automatically. Install it first,
+either with an AUR helper that resolves AUR-to-AUR dependencies:
+
+```sh
+yay -S libpurple   # or: paru -S libpurple
+```
+
+or manually:
+
+```sh
+git clone https://aur.archlinux.org/pidgin.git
+cd pidgin
+makepkg -si   # prompts to build/install the libpurple split package
+```
+
+Then build konqix itself:
+
 ```sh
 git clone https://github.com/asmbk/aur-konqix.git
 cd aur-konqix
 makepkg -si
 ```
 
-`makepkg -si` builds the package and installs it (plus any missing
-dependencies) via `pacman`.
+`makepkg -si` builds the package and installs it (plus any *officially
+packaged* missing dependencies — `qt6-base`, `kwindowsystem`,
+`hunspell`) via `pacman`.
 
 ## Updating for a new konqix release
 

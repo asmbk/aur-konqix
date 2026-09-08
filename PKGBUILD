@@ -6,6 +6,10 @@ pkgdesc="Qt 6 instant messenger built on libpurple"
 arch=('x86_64')
 url="https://github.com/radek-bucek/konqix"
 license=('GPL-2.0-or-later')
+# libpurple is AUR-only (split off the pidgin PKGBUILD, not in the
+# official repos), so pacman can't auto-install it as a dependency -
+# install it first, e.g. `yay -S libpurple` or by building
+# https://aur.archlinux.org/packages/pidgin yourself. See README.md.
 depends=('qt6-base' 'libpurple' 'kwindowsystem' 'hunspell')
 optdepends=('hunspell-en_us: English dictionary for the spell-check input overlay')
 makedepends=('cmake' 'pkgconf' 'desktop-file-utils')
